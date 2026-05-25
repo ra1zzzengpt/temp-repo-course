@@ -79,18 +79,18 @@ bool RunAll()
     const std::vector<int32_t> input       = {3, 1, 4, 1, 5, 9, 2, 6};
     const std::vector<int32_t> sorted_desc = {9, 6, 5, 4, 3, 2, 1, 1};
 
-    // --- Test 1: Bubble sort descending ---
+    // --- Тест 1: Пузырьковая сортировка по убыванию ---
     { BubbleSortAlgorithm    a; Check("Bubble: basic desc",    RunSort(a, input), sorted_desc); }
-    // --- Test 2: Selection sort descending ---
+    // --- Тест 2: Сортировка выбором по убыванию ---
     { SelectionSortAlgorithm a; Check("Selection: basic desc", RunSort(a, input), sorted_desc); }
-    // --- Test 3: Insert sort descending ---
+    // --- Тест 3: Сортировка вставками по убыванию ---
     { InsertSortAlgorithm    a; Check("Insert: basic desc",    RunSort(a, input), sorted_desc); }
-    // --- Test 4: Shell sort descending ---
+    // --- Тест 4: Сортировка Шелла по убыванию ---
     { ShellSortAlgorithm     a; Check("Shell: basic desc",     RunSort(a, input), sorted_desc); }
-    // --- Test 5: Quick sort descending ---
+    // --- Тест 5: Быстрая сортировка по убыванию ---
     { QuickSortAlgorithm     a; Check("Quick: basic desc",     RunSort(a, input), sorted_desc); }
 
-    // --- Test 6: Empty vector → completed=false ---
+    // --- Тест 6: Пустой вектор → completed=false ---
     {
         std::vector<int32_t> empty;
         BubbleSortAlgorithm    b; SelectionSortAlgorithm s;
@@ -103,34 +103,34 @@ bool RunAll()
         CheckBool("Empty: quick",     !q.Sort(empty).completed);
     }
 
-    // --- Test 7: Already sorted stays same ---
+    // --- Тест 7: Уже отсортированный вектор — остаётся прежним ---
     {
         const std::vector<int32_t> already = {9, 7, 5, 3, 1};
         BubbleSortAlgorithm a;
         Check("Bubble: already sorted desc", RunSort(a, already), already);
     }
 
-    // --- Test 8: Single element → unchanged ---
+    // --- Тест 8: Один элемент → без изменений ---
     {
         const std::vector<int32_t> single = {42};
         QuickSortAlgorithm a;
         Check("Quick: single element", RunSort(a, single), single);
     }
 
-    // --- Test 9: Negative values ---
+    // --- Тест 9: Отрицательные значения ---
     {
-        // [-2, 3, -4, 1, 2] sorted desc → [3, 2, 1, -2, -4]
+        // [-2, 3, -4, 1, 2] отсортировано по убыванию → [3, 2, 1, -2, -4]
         InsertSortAlgorithm a;
         Check("Insert: with negatives",
             RunSort(a, {-2, 3, -4, 1, 2}),
             {3, 2, 1, -2, -4});
     }
 
-    // --- Test 10: Matrix even-column sort ---
-    // Source: [[2,4],[6,1],[3,8]]
-    // Col0: even at rows 0,1 → [2,6] → desc [6,2]
-    // Col1: even at rows 0,2 → [4,8] → desc [8,4]
-    // Expected: [[6,8],[2,1],[3,4]]
+    // --- Тест 10: Сортировка чётных столбцов матрицы ---
+    // Исходная: [[2,4],[6,1],[3,8]]
+    // Столб. 0: чётные в строках 0,1 → [2,6] → убыв. [6,2]
+    // Столб. 1: чётные в строках 0,2 → [4,8] → убыв. [8,4]
+    // Ожидаемо: [[6,8],[2,1],[3,4]]
     {
         Matrix source   = {{2, 4}, {6, 1}, {3, 8}};
         Matrix expected = {{6, 8}, {2, 1}, {3, 4}};
@@ -138,14 +138,14 @@ bool RunAll()
         CheckMatrix("Matrix even-col sort", matrix_utils::SortEvenColumns(a, source).matrix, expected);
     }
 
-    // --- Test 11: Matrix with all odd → unchanged ---
+    // --- Тест 11: Матрица со всеми нечётными → без изменений ---
     {
         Matrix source = {{1, 3}, {5, 7}};
         BubbleSortAlgorithm a;
         CheckMatrix("Matrix all-odd: unchanged", matrix_utils::SortEvenColumns(a, source).matrix, source);
     }
 
-    // --- Test 12: Comparisons counter > 0 ---
+    // --- Тест 12: Счётчик сравнений > 0 ---
     {
         BubbleSortAlgorithm a;
         std::vector<int32_t> v = {5, 3, 1};

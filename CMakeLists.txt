@@ -5,10 +5,10 @@ project(sort LANGUAGES CXX)
 add_executable(sort
         source/main.cpp
 
-        source/core/application.cpp
+        source/app/application.cpp
 
-        source/infrastructure/timer/timer.cpp
-        source/infrastructure/files/files.cpp
+        source/utils/timer.cpp
+        source/utils/files.cpp
 
         source/sort_algorithm/bubble_sort.cpp
         source/sort_algorithm/insert_sort.cpp
