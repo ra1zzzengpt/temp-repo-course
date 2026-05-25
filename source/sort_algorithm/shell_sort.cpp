@@ -1,5 +1,5 @@
 #include "shell_sort.h"
-#include "infrastructure/timer/timer.h"
+#include "utils/timer.h"
 
 std::string ShellSortAlgorithm::GetName() const { return "Shell sort"; }
 

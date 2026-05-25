@@ -5,7 +5,7 @@
 #include <memory>
 #include <random>
 #include "utils/algorithm_factory.h"
-#include "infrastructure/timer/timer.h"
+#include "timer.h"
 
 namespace matrix_utils
 {

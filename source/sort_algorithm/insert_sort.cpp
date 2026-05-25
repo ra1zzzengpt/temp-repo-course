@@ -1,6 +1,5 @@
 #include "insert_sort.h"
-#include "infrastructure/timer/timer.h"
-
+#include "utils/timer.h"
 std::string InsertSortAlgorithm::GetName() const { return "Insert sort"; }
 
 SortResult InsertSortAlgorithm::Sort(std::vector<int32_t>& data)

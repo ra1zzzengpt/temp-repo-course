@@ -1,5 +1,5 @@
 #include "quick_sort.h"
-#include "infrastructure/timer/timer.h"
+#include "utils/timer.h"
 
 std::string QuickSortAlgorithm::GetName() const { return "Quick sort"; }
 

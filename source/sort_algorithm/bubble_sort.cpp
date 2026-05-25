@@ -1,5 +1,5 @@
 #include "bubble_sort.h"
-#include "infrastructure/timer/timer.h"
+#include "utils/timer.h"
 #include <utility>
 
 std::string BubbleSortAlgorithm::GetName() const { return "Bubble sort"; }

@@ -1,4 +1,4 @@
-#include "../infrastructure/timer/timer.h"
+#include "timer.h"
 
 // the number of ticks of the processor from its start
 std::chrono::high_resolution_clock::time_point timer::Now()
